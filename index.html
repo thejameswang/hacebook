@@ -1,93 +1,139 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Horizons Facebook</title>
-    <!-- CSS files for Bootstrap -->
-    <!-- UNCOMMENT IF NEEDED -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Your css file -->
-    <link rel="stylesheet" href="./css/style.css">
-  </head>
-  <body>
-    <div class="Entry Page" id = 'Entrypage'>
-      <nav class="navbar navbar-inverse">
-        <div class="container">
-          <a class="navbar-brand" href = '#'>Hacebook</a>
-          <ul class="nav navbar-nav navbar-right" id = 'login_btn'>
-            <li>
-              <a href="#" id = 'login'><span class="glyphicon glyphicon-log-in"></span> Login</a>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right collapse" id = 'register_btn'>
-            <li>
-              <a href="#" id = 'register'><span class="glyphicon glyphicon-log-in"></span> Register</a>
-            </li>
-          </ul>
+
+<head>
+  <meta charset="utf-8">
+  <title>Horizons Facebook</title>
+  <!-- CSS files for Bootstrap -->
+  <!-- UNCOMMENT IF NEEDED -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Your css file -->
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="Entry Page" id='Entrypage'>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <a class="navbar-brand" href='#'>Hacebook</a>
+        <ul class="nav navbar-nav navbar-right" id='login_btn'>
+          <li>
+            <a href="#" id='login'><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right collapse" id='register_btn'>
+          <li>
+            <a href="#" id='register'><span class="glyphicon glyphicon-log-in"></span> Register</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- YOUR CODE HERE -->
+    <!-- This is the registration form -->
+    <form class="well form-horizontal text-center" action=" " method="post" id="register_form">
+      <div class='form-group row'>
+        <h3 class='text-center'>Sign Up</h3>
+        <h4 class='text-center'>It costs nothing and always will!</h4>
+        <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">First Name</label>
+        <div class="col-xs-4 input-group">
+          <input type="firstname" class="form-control" id="inputFName" placeholder="First Name">
         </div>
-      </nav>
+      </div>
+      <div class='form-group row'>
+        <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Last Name</label>
+        <div class="col-xs-4 input-group">
+          <input type="lastname" class="form-control" id="inputLName" placeholder="Last Name">
+        </div>
+      </div>
+      <div class='form-group row'>
+        <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Email</label>
+        <div class="col-xs-4 input-group">
+          <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+      </div>
+      <div class='form-group row'>
+        <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Password</label>
+        <div class="col-xs-4 input-group">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
       <!-- YOUR CODE HERE -->
-      <!-- This is the registration form -->
-      <form class="well form-horizontal text-center" action=" " method="post"  id="register_form">
-          <div class = 'form-group row'>
-            <h3 class = 'text-center'>Sign Up</h3>
-            <h4 class = 'text-center'>It costs nothing and always will!</h4>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">First Name</label>
-            <div class="col-xs-4 input-group">
-              <input type="firstname" class="form-control" id="inputFName" placeholder="First Name">
+      <div class='form-group row text-center'>
+        <button type="submit" class="text-center btn btn-warning" id='registerbtn'>Register</button>
+      </div>
+    </form>
+    <!-- This is the login form -->
+    <form class="well form-horizontal text-center collapse" action=" " method="post" id="login_form">
+      <div class='form-group row'>
+        <h3 class='text-center'>Login</h3>
+        <h4 class='text-center'>Don't be afraid to forget your password!</h4>
+        <div class='form-group row'>
+          <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Email</label>
+          <div class="col-xs-4 input-group">
+            <input type="email" class="form-control" id="loginEmail" placeholder="Email">
+          </div>
+        </div>
+        <div class='form-group row'>
+          <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Password</label>
+          <div class="col-xs-4 input-group">
+            <input type="password" class="form-control" id="loginPassword" placeholder="Password">
+          </div>
+        </div>
+        <div class='form-group row text-center'>
+          <button type="submit" class="text-center btn btn-warning" id='loginreg'>Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  
+  <div class="Newsfeed collapse" id='Newsfeed'>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <a class="navbar-brand" href='#'>Hacebook</a>
+        <ul class="nav navbar-nav navbar-right" id='login_btn'>
+          <li>
+            <a href="#" id='home'><span class="glyphicon glyphicon-log-in"></span> Home</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="board">
+      <div class="list-container">
+        <div class="list">
+          <div class="list-header">
+            <span class="list-title">Some List</span>
+          </div>
+          <div class="list-cards">
+            <div class="card">
+              <span class="card-more">
+                <span class="glyphicon glyphicon-align-left"></span>
+              </span>
+              <div class="card-body">First card in first list</div>
             </div>
           </div>
-          <div class = 'form-group row'>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Last Name</label>
-            <div class="col-xs-4 input-group">
-              <input type="lastname" class="form-control" id="inputLName" placeholder="Last Name">
+          <div class="list-footer">
+            <button class="list-button add-card">Add a card...</button>
+            <div class="collapse add-card-form-wrapper">
+              <div class="well add-card-form">
+                <input type="text" class="form-control" placeholder="Card title">
+                <button type="button" class="btn btn-default add-card-save">
+                  Save
+                </button>
+                <button type="button" class="btn btn-default add-card-cancel"><span
+                        class="glyphicon glyphicon-remove"></span>
+                </button>
+              </div>
             </div>
           </div>
-          <div class = 'form-group row'>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Email</label>
-            <div class="col-xs-4 input-group">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class = 'form-group row'>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Password</label>
-            <div class="col-xs-4 input-group">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-            </div>
-          </div>
-          <!-- YOUR CODE HERE -->
-          <div class = 'form-group row text-center'>
-            <button type="submit" class="text-center btn btn-warning" id = 'registerbtn'>Register</button>
-          </div>
-      </form>
-      <!-- This is the login form -->
-      <form class="well form-horizontal text-center collapse" action=" " method="post"  id="login_form">
-          <div class = 'form-group row'>
-            <h3 class = 'text-center'>Login</h3>
-            <h4 class = 'text-center'>Don't be afraid to forget your password!</h4>
-          <div class = 'form-group row'>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Email</label>
-            <div class="col-xs-4 input-group">
-              <input type="email" class="form-control" id="loginEmail" placeholder="Email">
-            </div>
-          </div>
-          <div class = 'form-group row'>
-            <label for="staticEmail" class="col-xs-2 col-xs-offset-2 control-label">Password</label>
-            <div class="col-xs-4 input-group">
-              <input type="password" class="form-control" id="loginPassword" placeholder="Password">
-            </div>
-          </div>
-          <div class = 'form-group row text-center'>
-            <button type="submit" class="text-center btn btn-warning" id = 'loginreg'>Login</button>
-          </div>
-      </form>
+        </div>
+      </div>
     </div>
     <!-- News Feed Post-->
+
     <!-- jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- JavaScript files for Bootstrap -->
     <!-- UNCOMMENT IF NEEDED -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
@@ -95,5 +141,6 @@
     <!-- underscoreJS Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script type="text/javascript" src="./js/script.js"></script>
-  </body>
+</body>
+
 </html>
