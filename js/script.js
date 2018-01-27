@@ -46,7 +46,7 @@ $('#loginreg').on('click', function() {
     success: function(data) {
       $('#login_form').toggleClass('collapse');
       $('#Entrypage').toggleClass('collapse');
-      $('#Newsfeed').toggleClass('collapse');
+      $('#Home').toggleClass('collapse');
       localStorage.setItem('token', data.response.token);
     },
     error: function(resp) {
