@@ -22,6 +22,7 @@ div.form-group.row {
   margin: 2em;
 }
 
-.board {
-  
+.NewsFeed {
+  height: 50em;
+  background-color: gray;
 }
