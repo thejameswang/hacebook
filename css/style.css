@@ -24,5 +24,52 @@ div.form-group.row {
 
 .NewsFeed {
   height: 50em;
-  background-color: gray;
+  background-color: lightgray;
+}
+
+.post-container {
+  border: 1px solid red;
+  height: auto;
+}
+
+.post {
+  background-color: white;
+  margin: 1em 0px;
+  padding: 1em;
+}
+
+.numContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.commentInput {
+  border: solid red 1px;
+  display: flex;
+  margin: .5em 0;
+}
+
+.btnContainer {
+  display: flex;
+}
+.commentBtn {
+  border: solid 1px blue;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+}
+
+.likeBtn {
+  border: solid 1px green;
+  flex: 1;
+  justify-content: center;
+  display: flex;
+}
+.commentInputstyle {
+  border: solid pink 1px;
+  flex: 1;
 }
