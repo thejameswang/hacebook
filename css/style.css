@@ -10,11 +10,10 @@
 .navbar-right {
   margin-right: 2em;
 }
-@media (min-width: 845) {
+/* @media (min-width: 845) {
   /* .form-group h4 {
     margin-bottom: 1em;
   } */
-}
 .form-group {
   margin: 1.5em 0px;
 }
@@ -23,12 +22,12 @@ div.form-group.row {
 }
 
 .NewsFeed {
-  height: 50em;
+  height: 100%;
   background-color: lightgray;
 }
 
 .post-container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: auto;
 }
 
@@ -38,6 +37,10 @@ div.form-group.row {
   padding: 1em;
 }
 
+.otherComments {
+  height: 100%;
+  background-color: lightgray;
+}
 .numContainer {
   display: flex;
   justify-content: space-between;
@@ -48,7 +51,7 @@ div.form-group.row {
   justify-content: space-around;
 }
 .commentInput {
-  border: solid red 1px;
+  /* border: solid red 1px; */
   display: flex;
   margin: .5em 0;
 }
@@ -57,19 +60,19 @@ div.form-group.row {
   display: flex;
 }
 .commentBtn {
-  border: solid 1px blue;
+  /* border: solid 1px blue; */
   flex: 1;
   justify-content: center;
   display: flex;
 }
 
 .likeBtn {
-  border: solid 1px green;
+  /* border: solid 1px green; */
   flex: 1;
   justify-content: center;
   display: flex;
 }
 .commentInputstyle {
-  border: solid pink 1px;
+  /* border: solid pink 1px; */
   flex: 1;
 }

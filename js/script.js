@@ -48,6 +48,8 @@ $('#loginreg').on('click', function() {
       $('#Entrypage').toggleClass('collapse');
       $('#Home').toggleClass('collapse');
       localStorage.setItem('token', data.response.token);
+      getPosts()
+      // getPosts()
     },
     error: function(resp) {
       alert(resp.responseText.error);
@@ -55,3 +57,52 @@ $('#loginreg').on('click', function() {
   })
   return false;
 })
+function getPosts() {
+  $.ajax({
+    url: 'https://horizons-facebook.herokuapp.com/api/1.0/posts/1',
+    method: 'GET',
+    data: {
+      token: localStorage.getItem('token'),
+    },
+    success: function(data) {
+      createPosts(data);
+    }
+  })
+}
+
+function createPosts(data) {
+  console.log(data)
+  var numPosts = data.response;
+  numPosts.forEach(function(post) {
+    $('.post-container').append(`<div class="post" id = "${post._id}">
+      <div class="post-header">
+        <h5>${post.poster.name}</h5>
+        <p><i>${post.createdAt}</i></p>
+      </div>
+      <div class="post-body">
+        <h3>${post.content}</h3>
+      </div>
+      <div class="post-footer">
+        <div class="numContainer">
+          <div class="numlike">
+            <p>${post.likes.length} likes</p>
+          </div>
+          <div class="numcomment">
+            <p>${post.comments.length} comments</p>
+          </div>
+        </div>
+        <div class="btnContainer">
+          <div class="likeBtn">
+            <button type="button" name="likeBtn">Like</button>
+          </div>
+          <div class="commentBtn">
+            <button type="button" name="commentBtn">Comment</button>
+          </div>
+        </div>
+        <div class="commentInput">
+          <input class = 'commentInputstyle' type="text" name="" value="" placeholder="Comment">
+        </div>
+      </div>
+    </div>`);
+  })
+}
