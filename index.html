@@ -88,6 +88,7 @@
   <div class="Home collapse" id='Home'>
     <nav class="navbar navbar-inverse">
       <div class="container">
+        <a href="#" class="navbar-brand"><img src="images/logo.png" height ='60em' width = '30em'></a>
         <a class="navbar-brand" href='#'>Hacebook</a>
         <ul class="nav navbar-nav navbar-right" id='login_btn'>
           <li>
@@ -97,7 +98,10 @@
       </div>
     </nav>
     <div class="NewsFeed container-fluid">
+      <!-- <textarea name="name" rows="8" cols="80" placeholder="What's on your mind?"></textarea> -->
       <div class="row">
+        <input id="postPost" class = "inputPost col-xs-4 col-xs-offset-3" type="text" name="inputpost" value="" placeholder="What's on your mind?">
+        <input id="postContent" type="submit" name="post" value="Post">
         <div class="post-container col-xs-4 col-xs-offset-3">
           <div class="post">
             <div class="post-header">
@@ -109,7 +113,16 @@
             </div>
             <div class="post-footer">
               <div class="otherComments">
-                <h4>This is a comment</h4>
+                <div class="comment" id = "">
+                  <div class="commentHeader">
+                    <h4>Name</h4>
+                    <p>Date and Time</p>
+                  </div>
+                  <div class="commentBody">
+                    <h5>Hiiii</h5>
+                  </div>
+                </div>
+                <!-- <h4>This is a comment</h4> -->
               </div>
               <div class="numContainer">
                 <div class="numlike">

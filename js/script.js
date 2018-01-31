@@ -47,7 +47,32 @@ $('#loginreg').on('click', function() {
       $('#login_form').toggleClass('collapse');
       $('#Entrypage').toggleClass('collapse');
       $('#Home').toggleClass('collapse');
+      getPosts()
+      update()
       localStorage.setItem('token', data.response.token);
+      // getComments()
+      // getPosts()
+    },
+    error: function(resp) {
+      alert(resp.responseText.error);
+    }
+  })
+  return false;
+})
+
+function update() {
+  var intervalID = setInterval(getPosts, 30000);
+}
+
+$('#postContent').on('click', function() {
+  $.ajax({
+    url:'https://horizons-facebook.herokuapp.com/api/1.0/posts',
+    method: 'POST',
+    data: {
+      token: localStorage.getItem('token'),
+      content: $('#postPost').val(),
+    },
+    success: function(data) {
       getPosts()
       // getPosts()
     },
@@ -57,6 +82,7 @@ $('#loginreg').on('click', function() {
   })
   return false;
 })
+
 function getPosts() {
   $.ajax({
     url: 'https://horizons-facebook.herokuapp.com/api/1.0/posts/1',
@@ -69,7 +95,6 @@ function getPosts() {
     }
   })
 }
-
 function createPosts(data) {
   console.log(data)
   var numPosts = data.response;
@@ -83,6 +108,8 @@ function createPosts(data) {
         <h3>${post.content}</h3>
       </div>
       <div class="post-footer">
+        <div class="otherComments">
+        </div>
         <div class="numContainer">
           <div class="numlike">
             <p>${post.likes.length} likes</p>
@@ -104,5 +131,27 @@ function createPosts(data) {
         </div>
       </div>
     </div>`);
+    $.ajax({
+      url: `https://horizons-facebook.herokuapp.com/api/1.0/posts/comments/${post._id}`,
+      method: 'GET',
+      data: {
+        token: localStorage.getItem('token'),
+      },
+      success: function(data){
+        var x = data.response
+        console.log(x)
+        x.forEach(function(obj) {
+          $(`#${post._id}`).find('.otherComments').append(`<div class="comment" id = "${obj.poster.id}">
+            <div class="commentHeader">
+              <h4>${obj.poster.name}</h4>
+              <p>${obj.createdAt}</p>
+            </div>
+            <div class="commentBody">
+              <h5>${obj.content}</h5>
+            </div>
+          </div>`)
+        })
+      }
+    })
   })
 }
