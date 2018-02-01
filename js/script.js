@@ -16,7 +16,8 @@ $('#registerbtn').on('click', function(event) {
       $('#login_btn').toggleClass('collapse')
     },
     error: function(resp) {
-      alert(resp.responseText.error);
+      // console.log(resp)
+      alert(resp.responseJSON.error);
     }
   })
   event.preventDefault();
@@ -64,7 +65,7 @@ function update() {
   var intervalID = setInterval(getPosts, 30000);
 }
 
-$('#postContent').on('click', function() {
+$('.NewsFeed').on('click','#postContent',function() {
   $.ajax({
     url:'https://horizons-facebook.herokuapp.com/api/1.0/posts',
     method: 'POST',
@@ -77,7 +78,7 @@ $('#postContent').on('click', function() {
       // getPosts()
     },
     error: function(resp) {
-      alert(resp.responseText.error);
+      alert(resp.responseJSON.error);
     }
   })
   return false;
@@ -96,7 +97,8 @@ function getPosts() {
   })
 }
 function createPosts(data) {
-  console.log(data)
+  // console.log(data)
+  $('.post-container').empty();
   var numPosts = data.response;
   numPosts.forEach(function(post) {
     $('.post-container').append(`<div class="post" id = "${post._id}">
@@ -126,8 +128,11 @@ function createPosts(data) {
             <button type="button" name="commentBtn">Comment</button>
           </div>
         </div>
-        <div class="commentInput">
-          <input class = 'commentInputstyle' type="text" name="" value="" placeholder="Comment">
+        <div class="commentbox collapse">
+          <div class="commentInput">
+            <input class ='commentInputstyle' type="text" name="" value="" placeholder="Comment">
+            <input class='submitPost' type="submit" name="commentPost" value="Post">
+          </div>
         </div>
       </div>
     </div>`);
@@ -139,7 +144,7 @@ function createPosts(data) {
       },
       success: function(data){
         var x = data.response
-        console.log(x)
+        // console.log(x)
         x.forEach(function(obj) {
           $(`#${post._id}`).find('.otherComments').append(`<div class="comment" id = "${obj.poster.id}">
             <div class="commentHeader">
@@ -153,5 +158,56 @@ function createPosts(data) {
         })
       }
     })
+    //This will be where likes can be started. A modal can come up to display who liked what
+    // $.ajax({
+    //   url: `https://horizons-facebook.herokuapp.com/api/1.0/posts/likes/${post._id}`,
+    //   method: 'GET',
+    //   data: {
+    //     token: localStorage.getItem('token'),
+    //   },
+    //   success: function(data) {
+    //
+    //   }
+    // })
   })
 }
+$('.post-container').on('click','.commentBtn', function() {
+    // console.log('here')
+    // console.log($(this).parent().parent().find('.commentInputstyle'))
+    $(this).parent().parent().find('.commentbox').toggleClass('collapse')
+})
+$('.post-container').on('click','.submitPost', function() {
+    // console.log('here')
+    // console.log($(this).parent().parent().find('.commentInputstyle'))
+    var comment = $(this).parent().find('.commentInputstyle').val();
+    if(comment.length > 1) {
+      var postId = $(this).closest('.post').attr('id');
+      $.ajax({
+        url: `https://horizons-facebook.herokuapp.com/api/1.0/posts/comments/${postId}`,
+        method:'POST',
+        data: {
+          token: localStorage.getItem('token'),
+          content:comment
+        },
+        success: function() {
+          getPosts()
+        },
+        error: function(err) {
+          alert(err)
+        }
+      })
+    }
+})
+$('#logout').on('click',function(){
+  $.ajax({
+    url:'https://horizons-facebook.herokuapp.com/api/1.0/users/logout',
+    data:{
+      token: localStorage.getItem('token')
+    },
+    success: function() {
+      $('#Home').toggleClass('collapse');
+      $('#login_form').toggleClass('collapse');
+      $('#Entrypage').toggleClass('collapse');
+    }
+  })
+})
