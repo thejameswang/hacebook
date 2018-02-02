@@ -42,7 +42,10 @@ div.form-group.row {
   margin: 1em 0px;
   padding: 1em;
 }
-
+.post-header h5{
+  color: blue;
+  font-weight: bold;
+}
 .otherComments {
   height: 100%;
   background-color: lightgray;

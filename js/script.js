@@ -146,10 +146,11 @@ function createPosts(data) {
         var x = data.response
         // console.log(x)
         x.forEach(function(obj) {
+          var date = new Date(obj.createdAt).toString().slice(0,15)
           $(`#${post._id}`).find('.otherComments').append(`<div class="comment" id = "${obj.poster.id}">
             <div class="commentHeader">
               <h4>${obj.poster.name}</h4>
-              <p>${obj.createdAt}</p>
+              <p>${date}</p>
             </div>
             <div class="commentBody">
               <h5>${obj.content}</h5>
