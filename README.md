@@ -6,6 +6,6 @@ This is a personal project that explores the usage of APIs and server interactio
 will change to have a database.
 
 ### Disclaimer
-  1. This is a frontend build clone of Facebook so that the functions work. The UI requires improvement
+  1. This is a frontend build clone of Facebook so that the functions work. The UI requires improvement.
   2. This is a learning tool that taught me DOM manipulation, Frameworks, and different JavaScript essentials.
-  3. There will be another version that incorporates the backend including MongoDB, Express, Node, and different packages
+  3. There will be another version that incorporates the backend including MongoDB, Express, Node, and different packages.
